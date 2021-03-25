@@ -9,5 +9,35 @@
     background-color: #F9F6F6;
     padding: 1%;
     border-bottom: 10px solid #dbdbdb;
-    margin-bottom: 1%;
+}
+
+.active {
+  background-color: #5ACADB;
+}
+
+.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  overflow: hidden;
+  background-color: #F9F6F6;
+  border-color: #F9F6F6;
+  margin-bottom: 1%;
+}
+
+.nav-element {
+  float: left;
+}
+
+.nav-element a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-element a:hover {
+  background-color: #aeacac;
 }
