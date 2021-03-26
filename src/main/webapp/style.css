@@ -2,6 +2,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 650px;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
 }
 
 .header {
@@ -40,4 +41,12 @@
 
 .nav-element a:hover {
   background-color: #aeacac;
+}
+
+.explination {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
 }

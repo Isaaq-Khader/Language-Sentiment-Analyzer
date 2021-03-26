@@ -17,8 +17,24 @@
                 <li class="nav-element"><a href="javascript:void(0)">Contact</a></li>
                 <li class="nav-element rightli" style="float:right"><a href="javascript:void(0)">About Us</a></li>
             </div>
-            </ul>
-      <p>Welcome to the website!</p>
+        </ul>
+
+      <div class="explination">
+          <h2>How it works</h2>
+          <p>In the form below, you can input a piece of text <u>in Spanish</u> and the analyzer will translate it and understand its sentiment score.</p>
+          <p>The score ranges from -1.0 to 1.0 with a negative score indicating a negative sentence and a positive score indicating a positive sentence.</p>
+          <p>Now go on and give it a try!</p>
+      </div>
+      
+      <div class="form">
+        <h2>Translated Sentence Analyzer</h2>
+        <p>Type/Paste your text below:</p>
+       <form method="POST" action="/">
+        <textarea name="user-message"></textarea>
+        <br/>
+        <button>Submit</button>
+       </form>
+      </div>
     </div>
   </body>
 </html>
