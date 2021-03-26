@@ -8,12 +8,35 @@
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <div class = "header">
+            <h1>Language Sentiment Analyzer</h1>
+      </div>
+        <ul class="horizontal">
+            <div class="nav">
+                <li class="nav-element"><a class="active" href="/">Home</a></li>
+                <li class="nav-element"><a href="javascript:void(0)">Contact</a></li>
+                <li class="nav-element rightli" style="float:right"><a href="javascript:void(0)">About Us</a></li>
+            </div>
+        </ul>
+
+      <br/>
+      
+      <div class="explination">
+          <h2>How it works</h2>
+          <p>In the form below, you can input a piece of text <u>in Spanish</u> and the analyzer will translate it and understand its sentiment score.</p>
+          <p>The score ranges from -1.0 to 1.0 with a negative score indicating a negative sentence and a positive score indicating a positive sentence.</p>
+          <p>Now go on and give it a try!</p>
+      </div>
+      <br/>
+      <div class="form">
+        <h2>Translated Sentence Analyzer</h2>
+        <p>Type/Paste your text below:</p>
+       <form method="POST" action="/">
+        <textarea name="user-message"></textarea>
+        <br/>
+        <button>Submit</button>
+       </form>
+      </div>
     </div>
   </body>
 </html>

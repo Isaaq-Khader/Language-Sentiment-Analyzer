@@ -2,8 +2,57 @@
   margin-left: auto;
   margin-right: auto;
   width: 650px;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
 }
 
-#greeting-container {
-  margin-top: 20px;
+.header {
+    text-align: center;
+    background-color: #F9F6F6;
+    padding: 1%;
+    border-bottom: 10px solid #dbdbdb;
+}
+
+.active {
+  background-color: #5ACADB;
+}
+
+.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  overflow: hidden;
+  background-color: #F9F6F6;
+  border-color: #F9F6F6;
+  margin-bottom: 1%;
+}
+
+.nav-element {
+  float: left;
+}
+
+.nav-element a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-element a:hover {
+  background-color: #aeacac;
+}
+
+.explination {
+    background-color: #F9F6F6;
+    border-top: 10px solid #dbdbdb;
+    padding: 1%;
+    text-align: center;
+}
+
+.form {
+    background-color: #F9F6F6;
+    border-top: 10px solid #dbdbdb;
+    padding: 1%;
+    text-align: center;
 }
