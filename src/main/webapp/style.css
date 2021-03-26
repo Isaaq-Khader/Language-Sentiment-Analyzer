@@ -44,9 +44,15 @@
 }
 
 .explination {
+    background-color: #F9F6F6;
+    border-top: 10px solid #dbdbdb;
+    padding: 1%;
     text-align: center;
 }
 
 .form {
+    background-color: #F9F6F6;
+    border-top: 10px solid #dbdbdb;
+    padding: 1%;
     text-align: center;
 }
