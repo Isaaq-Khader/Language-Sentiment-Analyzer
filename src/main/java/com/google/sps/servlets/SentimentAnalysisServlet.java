@@ -17,8 +17,9 @@ public class SentimentAnalysisServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String message = request.getParameter("message");
+        String message = request.getParameter("user-message");
 
+        System.out.println(message);
         Document doc =
             Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
         LanguageServiceClient languageService = LanguageServiceClient.create();
