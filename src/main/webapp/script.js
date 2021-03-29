@@ -46,7 +46,7 @@ async function getSentiment() {
   sentimentContainer.innerText = "";
 
   sentimentContainer.appendChild(
-    createParagraphElement("Our sentiment score: " + sentiment)
+    createParagraphElement("Sentiment score: " + sentiment)
   );
 
   sentimentContainer.appendChild(
