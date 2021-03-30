@@ -36,21 +36,29 @@ async function postSentiment(data) {
 async function getSentiment() {
   // Depends on where our value is stored in our index.html
   // TODO: This value should be updated to get our message from our translation servlet.
-  const data = document.getElementById("message").value;
+  const message = document.getElementById("user-message").value;
 
   // Gets our sentiment vaue from POST Request
-  const sentiment = await postSentiment(data);
+  const sentiment = await postSentiment(message);
 
   // Depends on the element id used to display our sentiment
   const sentimentContainer = document.getElementById("sentiment");
   sentimentContainer.innerText = "";
 
+  // Displays sentiment score
   sentimentContainer.appendChild(
     createParagraphElement("Sentiment score: " + sentiment)
   );
 
+  // Displays our score message
   sentimentContainer.appendChild(
     createParagraphElement(getMessage(parseFloat(sentiment)))
+  );
+
+  // Dispalys Original Messsage
+  // TODO: This code should be moved to Translation method once created
+  sentimentContainer.appendChild(
+    createParagraphElement("Original Message: " + message)
   );
 }
 
