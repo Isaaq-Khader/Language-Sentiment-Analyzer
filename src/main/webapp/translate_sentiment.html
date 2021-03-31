@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sentiment Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div class = "header">
+            <h1>Language Sentiment Analyzer</h1>
+      </div>
+        <ul class="horizontal">
+            <div class="nav">
+                <li class="nav-element"><a href="/">Home</a></li>
+                <li class="nav-element"><a class="active" href="/translate_sentiment.html">Translator</a></li>
+                <li class="nav-element"><a href="/contact.html">Contact</a></li>
+                <li class="nav-element"><a href="/aboutus.html">About Us</a></li>
+            </div>
+        </ul>
+        <div class="form">
+            <h2>Translated Sentence Analyzer</h2>
+            <p>Type/Paste your text below:</p>
+        <form method="POST" action="/translate_sentiment.html">
+            <textarea name="user-message" id="user-message"></textarea>
+            <br/>
+        </form>
+            <button onclick="getSentiment()">Submit</button>
+            <div id="sentiment"></div>
+      </div>
+    </div>
+  </body>
+</html>
