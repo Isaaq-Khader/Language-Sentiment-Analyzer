@@ -1,3 +1,8 @@
+.bg {
+    background-color: #B3E2F6;
+    padding-top: 1%;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
@@ -5,54 +10,57 @@
   font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
 }
 
-.header {
-    text-align: center;
-    background-color: #F9F6F6;
-    padding: 1%;
-    border-bottom: 10px solid #dbdbdb;
-}
-
 .active {
-  background-color: #5ACADB;
+  background-color: #FFCD24;
 }
 
 .horizontal {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 3px;
-  padding-right: 3px;
-  overflow: hidden;
-  background-color: #F9F6F6;
-  border-color: #F9F6F6;
-  margin-bottom: 1%;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 1%;
+    padding-right: 0px;
+    overflow: hidden;
+    background-color: #2AABE4;
+    margin-bottom: 1%;
+}
+
+.header {
+  display: block;
+  color: white;
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .nav-element {
-  float: left;
+  float: right;
 }
 
 .nav-element a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
 .nav-element a:hover {
-  background-color: #aeacac;
+  background-color: #157FAC;
 }
 
 .explination {
-    background-color: #F9F6F6;
-    border-top: 10px solid #dbdbdb;
+    background-color: #2AABE4;
+    border-top: 10px solid #1998CE;
+    color: white;
     padding: 1%;
     text-align: center;
 }
 
 .form {
-    background-color: #F9F6F6;
-    border-top: 10px solid #dbdbdb;
+    background-color: #2AABE4;
+    border-top: 10px solid #1998CE;
+    color: white;
     padding: 1%;
     text-align: center;
 }
