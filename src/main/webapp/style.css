@@ -22,6 +22,7 @@
     overflow: hidden;
     background-color: #2AABE4;
     margin-bottom: 1%;
+    box-shadow: 0 2px 2px -2px black;
 }
 
 .header {
@@ -56,6 +57,7 @@
     padding: 1%;
     text-align: center;
     overflow: auto;
+    box-shadow: 0 2px 2px -2px black;
 }
 
 .exphead {
@@ -88,6 +90,7 @@
     color: white;
     padding: 1%;
     text-align: center;
+    box-shadow: 0 2px 2px -2px black;
 }
 
 .bio-left {
@@ -96,6 +99,7 @@
     color: white;
     padding: 1%;
     overflow: auto;
+    box-shadow: 0 2px 2px -2px black;
 }
 
 .social {
