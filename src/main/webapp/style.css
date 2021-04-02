@@ -95,7 +95,8 @@
     border-left: 10px solid #1998CE;
     color: white;
     padding: 1%;
-    overflow: auto;
+    overflow: auto;    
+    margin: 1%;
 }
 
 .social {
