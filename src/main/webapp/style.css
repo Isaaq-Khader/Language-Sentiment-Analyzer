@@ -54,6 +54,9 @@
     border-top: 10px solid #1998CE;
     color: white;
     padding: 1%;
+    text-align: center;
+    justify-content: center;
+    overflow: auto;
 }
 
 .exphead {
