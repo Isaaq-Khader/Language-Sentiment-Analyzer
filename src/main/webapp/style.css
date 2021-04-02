@@ -80,3 +80,21 @@
     padding: 1%;
     text-align: center;
 }
+
+.bio-left {
+    background-color: #2AABE4;
+    border-left: 10px solid #1998CE;
+    color: white;
+    padding: 1%;
+    overflow: auto;
+}
+
+.social {
+    padding: 5px;
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: auto;
+}
