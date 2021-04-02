@@ -104,6 +104,11 @@
     float: right;
     align-items: center;
     justify-content: center;
-    width: 75px;
+    width: 25px;
     height: auto;
+}
+
+.AIimg {
+    height: 150px;
+    width: auto;
 }
