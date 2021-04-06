@@ -111,12 +111,12 @@ function getScoreResponse(score) {
     "Killing them with kindness.",
   ];
   const neutralMessages = [
-    "Congrats, You acieved a neutral response",
+    "Congrats, You achieved a neutral response",
     "This text shouldn't ruffle any feathers.",
     "You're like the swiss, Neutral.",
   ];
   const negativeMessages = [
-    "Congrats, this text is sortof negative. If you meant it.",
+    "Congrats, this text is sort-of negative. If you meant it.",
     "Sometimes you need to get a somber tone across.",
     "Let the frustration out. it's ok.",
   ];
