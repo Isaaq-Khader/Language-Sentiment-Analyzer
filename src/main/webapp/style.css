@@ -6,7 +6,7 @@
 #content {
   margin-left: auto;
   margin-right: auto;
-  width: 650px;
+  width: 45%;
   font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
 }
 
@@ -22,6 +22,7 @@
     overflow: hidden;
     background-color: #2AABE4;
     margin-bottom: 1%;
+    box-shadow: 0 2px 2px -2px black;
 }
 
 .header {
@@ -55,6 +56,32 @@
     color: white;
     padding: 1%;
     text-align: center;
+    overflow: auto;
+    box-shadow: 0 2px 2px -2px black;
+}
+
+.exphead {
+    text-align: left; 
+    padding-left: 1%;
+}
+
+.expbody {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+.microscope {
+    display: inline-block;
+    float: left;
+    padding-right: 1%;
+}
+
+.expdesc {
+    display: inline;
+    text-align: center;
+    text-decoration: none;
 }
 
 .form {
@@ -63,4 +90,29 @@
     color: white;
     padding: 1%;
     text-align: center;
+    box-shadow: 0 2px 2px -2px black;
+}
+
+.bio-left {
+    background-color: #2AABE4;
+    border-left: 10px solid #1998CE;
+    color: white;
+    padding: 1%;
+    overflow: auto;
+    box-shadow: 0 2px 2px -2px black;
+}
+
+.social {
+    padding: 5px;
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: auto;
+}
+
+.AIimg {
+    height: 150px;
+    width: auto;
 }
