@@ -110,7 +110,11 @@ function getScoreResponse(score) {
     "That should make someone smile.",
     "Killing them with kindness.",
   ];
-  const neutralMessages = [];
+  const neutralMessages = [
+    "Congrats, You acieved a neutral response",
+    "This text shouldn't ruffle any feathers.",
+    "You're like the swiss, Neutral.",
+  ];
   const negativeMessages = [];
 
   console.log(randomIndex);
