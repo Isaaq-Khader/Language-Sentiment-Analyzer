@@ -104,7 +104,6 @@ function createParagraphElement(text) {
 // This function returns a message based on sentiment scores
 function getScoreResponse(score) {
   // Messages based on score ranges
-  //TODO: updated messages to a series of good/bad/netural messages. Make it a random selection.
   const positiveMessages = [
     "Liking the positive energy!!",
     "That should make someone smile.",
@@ -121,6 +120,7 @@ function getScoreResponse(score) {
     "Let the frustration out. it's ok.",
   ];
 
+  // generates random index from 0 --> 2
   const randomIndex = Math.round(Math.random() * 3 - 1);
 
   /*
