@@ -105,7 +105,11 @@ function createParagraphElement(text) {
 function getScoreResponse(score) {
   // Messages based on score ranges
   //TODO: updated messages to a series of good/bad/netural messages. Make it a random selection.
-  const positiveMessages = [];
+  const positiveMessages = [
+    "Liking the positive energy!!",
+    "That should make someone smile.",
+    "Killing them with kindness.",
+  ];
   const neutralMessages = [];
   const negativeMessages = [];
 
