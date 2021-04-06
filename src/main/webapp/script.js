@@ -121,7 +121,7 @@ function getScoreResponse(score) {
     "Let the frustration out. it's ok.",
   ];
 
-  const randomIndex = Math.round(Math.random() * 3);
+  const randomIndex = Math.round(Math.random() * 3 - 1);
 
   /*
    * ranges:
