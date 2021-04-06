@@ -121,7 +121,8 @@ function getScoreResponse(score) {
     "Let the frustration out. it's ok.",
   ];
 
-  console.log(randomIndex);
+  const randomIndex = Math.round(Math.random() * 3);
+
   /*
    * ranges:
    *        -1 to -0.2  ==> negative
@@ -129,10 +130,10 @@ function getScoreResponse(score) {
    *        0.2 to 1    ==> postive
    * */
   if (score >= -0.2) {
-    return positiveMessages[0];
+    return positiveMessages[randomIndex];
   } else if (score > -0.2 && score < -0.2) {
-    return neutralMessages[0];
+    return neutralMessages[randomIndex];
   } else {
-    return negativeMessages[0];
+    return negativeMessages[randomIndex];
   }
 }
