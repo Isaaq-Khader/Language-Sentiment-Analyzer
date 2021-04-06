@@ -115,7 +115,11 @@ function getScoreResponse(score) {
     "This text shouldn't ruffle any feathers.",
     "You're like the swiss, Neutral.",
   ];
-  const negativeMessages = [];
+  const negativeMessages = [
+    "Congrats, this text is sortof negative. If you meant it.",
+    "Sometimes you need to get a somber tone across.",
+    "Let the frustration out. it's ok.",
+  ];
 
   console.log(randomIndex);
   /*
