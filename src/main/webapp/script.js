@@ -107,7 +107,7 @@ function getScoreResponse(score) {
   const positiveMessages = [
     "Liking the positive energy!!",
     "That should make someone smile.",
-    "Killing them with kindness.",
+    "That was nice to hear. Which means 'consume from standard imput.' in robot.",
   ];
   const neutralMessages = [
     "Congrats, You achieved a neutral response",
@@ -117,7 +117,7 @@ function getScoreResponse(score) {
   const negativeMessages = [
     "Congrats, this text is sort-of negative. If you meant it.",
     "Sometimes you need to get a somber tone across.",
-    "Let the frustration out. it's ok.",
+    "Did you hear about the mathematician that was afraid of negative numbers?\n He'll stop at nothing to avoid them.",
   ];
 
   // generates random index from 0 --> 2
