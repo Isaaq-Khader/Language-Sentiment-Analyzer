@@ -18,7 +18,7 @@
 // It uses a POST request to /translate servlet
 async function postTranslate(data) {
   // POST Request
-  const response = await fetch("/translate", {
+  const response = await fetch("/translator", {
     method: "POST", // Send Post Request to /translate
     headers: {
       "Content-Type": "application/json",
