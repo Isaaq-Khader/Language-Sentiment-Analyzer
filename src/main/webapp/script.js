@@ -107,7 +107,7 @@ function getScoreResponse(score) {
   const positiveMessages = [
     "Liking the positive energy!!",
     "That should make someone smile.",
-    "That was nice to hear. Which means 'consume from standard imput.' in robot.",
+    "That was nice to hear. Which means 'consume from standard input.' in robot.",
   ];
   const neutralMessages = [
     "Congrats, You achieved a neutral response",
