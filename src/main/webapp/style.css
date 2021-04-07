@@ -142,7 +142,27 @@
     color: white;
     padding: 1%;
     overflow: auto;
-    box-shadow: 0 2px 2px -2px black;
+    box-shadow: 0 1% 1% -1% black;
+}
+
+.inner-bio {
+  position: relative;
+}
+
+.bio-text {
+  display: inline-block;
+  width: 75%;
+}
+
+.bio-photo {
+  position: absolute;
+  right: 0px;
+  padding: 1%;
+  padding-top: 2%;
+  padding-left: 2%;
+  box-sizing: border-box;
+  max-height: 100%;
+  max-width: 75%
 }
 
 .social {
