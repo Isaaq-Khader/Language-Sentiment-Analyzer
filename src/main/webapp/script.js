@@ -104,8 +104,24 @@ function createParagraphElement(text) {
 // This function returns a message based on sentiment scores
 function getScoreResponse(score) {
   // Messages based on score ranges
-  //TODO: update messages to be something more readable
-  const messages = ["Negative", "Neutral", "Positive"];
+  const positiveMessages = [
+    "Liking the positive energy!!",
+    "That should make someone smile.",
+    "That was nice to hear. Which means 'consume from standard input.' in robot.",
+  ];
+  const neutralMessages = [
+    "Congrats, You achieved a neutral response",
+    "This text shouldn't ruffle any feathers.",
+    "You're like the swiss, Neutral.",
+  ];
+  const negativeMessages = [
+    "Congrats, this text is sort-of negative. If you meant it.",
+    "Sometimes you need to get a somber tone across.",
+    "Did you hear about the mathematician that was afraid of negative numbers?\n He'll stop at nothing to avoid them.",
+  ];
+
+  // generates random index from 0 --> 2
+  const randomIndex = Math.round(Math.random() * 3 - 1);
 
   /*
    * ranges:
@@ -113,11 +129,11 @@ function getScoreResponse(score) {
    *        -0.2 to 0.2 ==> neutral
    *        0.2 to 1    ==> postive
    * */
-  if (score <= -0.2) {
-    return messages[0];
+  if (score >= -0.2) {
+    return positiveMessages[randomIndex];
   } else if (score > -0.2 && score < -0.2) {
-    return messages[1];
+    return neutralMessages[randomIndex];
   } else {
-    return messages[2];
+    return negativeMessages[randomIndex];
   }
 }
