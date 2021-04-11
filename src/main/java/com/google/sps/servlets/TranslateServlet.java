@@ -5,7 +5,6 @@ import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
 import java.util.stream.Collectors;
-import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.google.gson.Gson;
 import com.google.sps.data.WhatsYourSentiment;
-
 
 @WebServlet("/translator")
 public class TranslateServlet extends HttpServlet {
@@ -43,7 +40,11 @@ public class TranslateServlet extends HttpServlet {
         String translatedText;
 		// Translate user text
 		Translate translate = TranslateOptions.getDefaultInstance().getService();
-		Translation translation = translate.translate(userInput, Translate.TranslateOption.sourceLanguage(sourceLanguage), Translate.TranslateOption.targetLanguage("en"),Translate.TranslateOption.format("text")); 
+		Translation translation = translate.translate(
+                userInput, 
+                Translate.TranslateOption.sourceLanguage(sourceLanguage), 
+                Translate.TranslateOption.targetLanguage("en"),
+                Translate.TranslateOption.format("text")); 
 		
 		translatedText = translation.getTranslatedText();
 
@@ -53,6 +54,7 @@ public class TranslateServlet extends HttpServlet {
 		response.getWriter().println(translatedText);
 	}
 
+    // convert from a HTTP query string to a JSON string
 	private static String convertToJson(String a) {
         String res = "{\"";
 
@@ -71,6 +73,7 @@ public class TranslateServlet extends HttpServlet {
         return res;
     }
     
+    // Converts a JSON string to a WhatsYourSentiment object. 
     private WhatsYourSentiment convertFromJson(String userInput){
         Gson gson = new Gson();
         WhatsYourSentiment userInputObject  = gson.fromJson(userInput, WhatsYourSentiment.class);
