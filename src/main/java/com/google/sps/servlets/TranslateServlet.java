@@ -56,6 +56,32 @@ public class TranslateServlet extends HttpServlet {
 		response.getWriter().println(translatedText);
 	}
 
+	private static String convertToJson(String a) {
+        String res = "{\"";
+
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) == '=') {
+                res += "\"" + ":" + "\"";
+            } else if (a.charAt(i) == '&') {
+                res += "\"" + "," + "\"";
+            } else if (a.charAt(i) == '+'){
+                res += " ";
+            }else {
+                res += a.charAt(i);
+            }
+        }
+        res += "\"" + "}";
+        return res;
+    }
+    
+    private WhatsYourSentiment convertFromJson(String userInput){
+        Gson gson = new Gson();
+        WhatsYourSentiment userInputObject  = gson.fromJson(userInput, WhatsYourSentiment.class);
+        return userInputObject;
+
+    }
+
+
 }
 
 //  :) 
