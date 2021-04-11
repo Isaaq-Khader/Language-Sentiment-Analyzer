@@ -26,7 +26,6 @@ public class TranslateServlet extends HttpServlet {
 		// Get user input.
 		String requestParameters = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         String userInputJsonString = convertToJson(requestParameters);
-        System.out.println(userInputJsonString);
 
 		// convert to WhatsYourSentiment object 
         WhatsYourSentiment userInputObject = convertFromJson(userInputJsonString);
@@ -39,8 +38,6 @@ public class TranslateServlet extends HttpServlet {
             sourceLanguage = userInputObject.getSourceLanguage();
         }
 		String userInput = userInputObject.getData();
-		System.out.println(sourceLanguage);
-        System.out.println(userInput);
 
 
         String translatedText;

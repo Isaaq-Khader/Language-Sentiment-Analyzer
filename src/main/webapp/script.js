@@ -20,8 +20,6 @@ async function postTranslate(data) {
   // source languge from dropdown
   const sourceLanguage = document.getElementById("choose-language").value;
 
-  console.log(sourceLanguage);
-
   const params = new URLSearchParams();
   params.append("data", data);
   params.append("sourceLanguage", sourceLanguage);
