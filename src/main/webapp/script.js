@@ -125,15 +125,15 @@ function getScoreResponse(score) {
 
   /*
    * ranges:
-   *        -1 to -0.2  ==> negative
+   *        -1 upto -0.2  ==> negative
    *        -0.2 to 0.2 ==> neutral
-   *        0.2 to 1    ==> postive
+   *        0.2 upto 1    ==> postive
    * */
-  if (score >= -0.2) {
+  if (score > 0.2) {
     return positiveMessages[randomIndex];
-  } else if (score > -0.2 && score < -0.2) {
-    return neutralMessages[randomIndex];
-  } else {
+  } else if (score < -0.2) {
     return negativeMessages[randomIndex];
+  } else {
+    return neutralMessages[randomIndex];
   }
 }
