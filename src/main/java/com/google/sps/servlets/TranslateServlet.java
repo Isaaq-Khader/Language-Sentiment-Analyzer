@@ -5,7 +5,7 @@ import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
 import java.util.stream.Collectors;
-
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.annotation.WebServlet;
@@ -13,26 +13,49 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import com.google.gson.Gson;
+import com.google.sps.data.WhatsYourSentiment;
+
+
 @WebServlet("/translator")
 public class TranslateServlet extends HttpServlet {
 
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Get user input.
-    String userInput = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-    //For now the langCode is just english
-    //String langCode = request.getParameter("languageCode");
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// Get user input.
+		String requestParameters = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+        String userInputJsonString = convertToJson(requestParameters);
+        System.out.println(userInputJsonString);
 
-    // Translate user text
-    Translate translate = TranslateOptions.getDefaultInstance().getService();
-    Translation translation = translate.translate(userInput, Translate.TranslateOption.targetLanguage("en"),Translate.TranslateOption.format("text")); 
-    
-    String translatedText = translation.getTranslatedText();
+		// convert to WhatsYourSentiment object 
+        WhatsYourSentiment userInputObject = convertFromJson(userInputJsonString);
+		 
+		// Gets source languge from dropdown
+		String sourceLanguage;
+        if (userInputObject.getSourceLanguage() == "en") {
+            sourceLanguage = "";
+        } else {
+            sourceLanguage = userInputObject.getSourceLanguage();
+        }
+		String userInput = userInputObject.getData();
+		System.out.println(sourceLanguage);
+        System.out.println(userInput);
 
-    // Prints translation.
-    response.setContentType("text/plain; charset=UTF-8");
-    response.setCharacterEncoding("UTF-8");
-    response.getWriter().println(translatedText);
-  }
+
+        String translatedText;
+		// Translate user text
+		Translate translate = TranslateOptions.getDefaultInstance().getService();
+		Translation translation = translate.translate(userInput, Translate.TranslateOption.sourceLanguage(sourceLanguage), Translate.TranslateOption.targetLanguage("en"),Translate.TranslateOption.format("text")); 
+		
+		translatedText = translation.getTranslatedText();
+
+		// Prints translation.
+		response.setContentType("text/plain; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().println(translatedText);
+	}
+
 }
+
 //  :) 
