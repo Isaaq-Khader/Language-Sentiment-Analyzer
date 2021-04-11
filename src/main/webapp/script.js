@@ -101,6 +101,35 @@ function createParagraphElement(text) {
   return pElement;
 }
 
+function displayLoadingBar(sentimentScore) {
+  document.getElementById("sentimentBarGraph").style.display = "";
+
+  const sentimentPercentage = ((parseFloat(sentimentScore) + 1) / 2) * 100;
+  console.log(((parseFloat(sentimentScore) + 1) / 2) * 100);
+  console.log(parseFloat(sentimentScore));
+  console.log(sentimentPercentage);
+  console.log(sentimentScore);
+  let i = 0;
+  if (i == 0) {
+    i = 1;
+    let elem = document.getElementById("sentimentBarGraph");
+    let width = 0;
+    let score = -1;
+    let id = setInterval(frame, 20);
+    function frame() {
+      if (width >= sentimentPercentage) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        score = score + 0.02;
+        elem.style.width = width + "%";
+        elem.innerHTML = score.toFixed(2);
+      }
+    }
+  }
+}
+
 // This function returns a message based on sentiment scores
 function getScoreResponse(score) {
   // Messages based on score ranges
