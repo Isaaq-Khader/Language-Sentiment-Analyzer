@@ -103,6 +103,7 @@ function createParagraphElement(text) {
   return pElement;
 }
 
+// returns emoji based on sentiment score
 function getEmoji(width) {
   const spanElem = document.createElement("span");
   spanElem.className = "emoji";
@@ -119,14 +120,11 @@ function getEmoji(width) {
   return spanElem;
 }
 
+// displays our loading bar to the sentimentBarGraph div
 function displayLoadingBar(sentimentScore) {
   document.getElementById("sentimentBarGraph").style.display = "";
 
   const sentimentPercentage = ((parseFloat(sentimentScore) + 1) / 2) * 100;
-  console.log(((parseFloat(sentimentScore) + 1) / 2) * 100);
-  console.log(parseFloat(sentimentScore));
-  console.log(sentimentPercentage);
-  console.log(sentimentScore);
   let i = 0;
   if (i == 0) {
     i = 1;
