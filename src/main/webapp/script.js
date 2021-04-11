@@ -101,6 +101,22 @@ function createParagraphElement(text) {
   return pElement;
 }
 
+function getEmoji(width) {
+  const spanElem = document.createElement("span");
+  spanElem.className = "emoji";
+  if (width <= 20) {
+    spanElem.innerText = "";
+  } else if (width <= 40) {
+    spanElem.innerText = "😒";
+  } else if (width >= 70) {
+    spanElem.innerText = "😺";
+  } else {
+    spanElem.innerText = "😐";
+  }
+
+  return spanElem;
+}
+
 function displayLoadingBar(sentimentScore) {
   document.getElementById("sentimentBarGraph").style.display = "";
 
@@ -125,6 +141,7 @@ function displayLoadingBar(sentimentScore) {
         score = score + 0.02;
         elem.style.width = width + "%";
         elem.innerHTML = score.toFixed(2);
+        elem.appendChild(getEmoji(width));
       }
     }
   }
