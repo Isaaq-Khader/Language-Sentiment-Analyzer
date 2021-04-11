@@ -92,6 +92,8 @@ function displayElements(sentimentScore, originalMessage, translatedMessage) {
   sentimentContainer.appendChild(
     createParagraphElement("Translated Message: " + translatedMessage)
   );
+
+  displayLoadingBar(sentimentScore);
 }
 
 // Creates a <p> element containing text.
@@ -167,8 +169,7 @@ function getScoreResponse(score) {
   ];
 
   // generates random index from 0 --> 2
-  const randomIndex = Math.round(Math.random() * 3 - 1);
-
+  const randomIndex = Math.round(Math.abs(Math.random() * 3 - 1));
   /*
    * ranges:
    *        -1 upto -0.2  ==> negative
