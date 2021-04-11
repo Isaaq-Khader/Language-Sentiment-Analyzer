@@ -17,13 +17,22 @@
 // translated value in english.
 // It uses a POST request to /translate servlet
 async function postTranslate(data) {
+  // source languge from dropdown
+  const sourceLanguage = document.getElementById("choose-language").value;
+
+  console.log(sourceLanguage);
+
+  const params = new URLSearchParams();
+  params.append("data", data);
+  params.append("sourceLanguage", sourceLanguage);
+
   // POST Request
   const response = await fetch("/translator", {
     method: "POST", // Send Post Request to /translate
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: params,
   });
 
   // Translated value from POST response
