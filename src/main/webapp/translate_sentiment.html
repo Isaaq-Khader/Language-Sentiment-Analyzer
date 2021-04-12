@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sentiment Translator</title>
+    <title>What's My Sentiment?</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
@@ -10,7 +10,7 @@
     <div id="content">
         <ul class="horizontal">
             <div class="nav">
-                <li class = "header">Language Sentiment Analyzer</li>
+                <li class = "header">What's My Sentiment?</li>
                 <li class="nav-element"><a href="/aboutus.html">About Us</a></li>
                 <li class="nav-element"><a class="active" href="/translate_sentiment.html">Translator</a></li>
                 <li class="nav-element"><a href="/">Home</a></li>
@@ -35,11 +35,13 @@
             <textarea name="user-message" id="user-message"></textarea>
             <br/>
         </form>
-            <button onclick="getSentiment()">Submit</button>
+
+            <button style="margin-bottom: 1%;" onclick="getSentiment()">Submit</button>
             <div id="sentiment"></div>
             <div id="progressBarGraph">
                 <div id="sentimentBarGraph" style="display:none;"></div>
             </div>
+
       </div>
     </div>
   </body>
