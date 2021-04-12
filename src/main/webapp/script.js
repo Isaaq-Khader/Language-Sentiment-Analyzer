@@ -99,6 +99,8 @@ function displayElements(sentimentScore, originalMessage, translatedMessage) {
   sentimentContainer.appendChild(
     createParagraphElement("Translated Message: " + translatedMessage)
   );
+
+  displayLoadingBar(sentimentScore);
 }
 
 // Creates a <p> element containing text.
@@ -106,6 +108,50 @@ function createParagraphElement(text) {
   const pElement = document.createElement("p");
   pElement.innerText = text;
   return pElement;
+}
+
+// returns emoji based on sentiment score
+function getEmoji(width) {
+  const spanElem = document.createElement("span");
+  spanElem.className = "emoji";
+  if (width <= 20) {
+    spanElem.innerText = "";
+  } else if (width <= 40) {
+    spanElem.innerText = "😒";
+  } else if (width >= 70) {
+    spanElem.innerText = "😺";
+  } else {
+    spanElem.innerText = "😐";
+  }
+
+  return spanElem;
+}
+
+// displays our loading bar to the sentimentBarGraph div
+function displayLoadingBar(sentimentScore) {
+  document.getElementById("sentimentBarGraph").style.display = "";
+
+  const sentimentPercentage = ((parseFloat(sentimentScore) + 1) / 2) * 100;
+  let i = 0;
+  if (i == 0) {
+    i = 1;
+    let elem = document.getElementById("sentimentBarGraph");
+    let width = 0;
+    let score = -1;
+    let id = setInterval(frame, 20);
+    function frame() {
+      if (width >= sentimentPercentage) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        score = score + 0.02;
+        elem.style.width = width + "%";
+        elem.innerHTML = score.toFixed(2);
+        elem.appendChild(getEmoji(width));
+      }
+    }
+  }
 }
 
 // This function returns a message based on sentiment scores
@@ -128,19 +174,18 @@ function getScoreResponse(score) {
   ];
 
   // generates random index from 0 --> 2
-  const randomIndex = Math.round(Math.random() * 3 - 1);
-
+  const randomIndex = Math.round(Math.abs(Math.random() * 3 - 1));
   /*
    * ranges:
-   *        -1 to -0.2  ==> negative
+   *        -1 upto -0.2  ==> negative
    *        -0.2 to 0.2 ==> neutral
-   *        0.2 to 1    ==> postive
+   *        0.2 upto 1    ==> postive
    * */
-  if (score >= -0.2) {
+  if (score > 0.2) {
     return positiveMessages[randomIndex];
-  } else if (score > -0.2 && score < -0.2) {
-    return neutralMessages[randomIndex];
-  } else {
+  } else if (score < -0.2) {
     return negativeMessages[randomIndex];
+  } else {
+    return neutralMessages[randomIndex];
   }
 }
