@@ -184,8 +184,25 @@
     margin-right: auto;
 }
 
+
 .sentiment-content {
     padding: 1%;
     background-color: #1c9fd9;
     border-left: 10px solid #6ec6ed;
 }
+
+#sentimentBarGraph{
+    width: 10%;
+    height: 40px;
+    background-color: #F68080;
+    text-align: center; 
+    line-height: 40px; 
+    color: white;
+}
+
+.emoji {
+    font-size: 27px;
+    vertical-align: middle;
+    line-height: 2;
+}
+
