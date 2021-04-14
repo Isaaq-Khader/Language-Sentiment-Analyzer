@@ -20,9 +20,10 @@ async function postTranslate(data) {
   // source languge from dropdown
   const sourceLanguage = document.getElementById("choose-language").value;
 
-  const params = new URLSearchParams();
-  params.append("data", data);
-  params.append("sourceLanguage", sourceLanguage);
+  const params = {
+    data: data,
+    sourceLanguage: sourceLanguage,
+  };
 
   // POST Request
   const response = await fetch("/translator", {
@@ -30,7 +31,7 @@ async function postTranslate(data) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: params,
+    body: JSON.stringify(params),
   });
 
   // Translated value from POST response
