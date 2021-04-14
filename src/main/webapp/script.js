@@ -59,73 +59,11 @@ async function postSentiment(data) {
   return sentimentScore;
 }
 
-// Gets a sentiment value and updates DOM with new element.
-async function getSentiment() {
-  // Depends on where our value is stored in our index.html
-  const userMessage = document.getElementById("user-message").value;
-
-  // Gets our translated message from /translate servlet
-  const translatedMessage = await postTranslate(userMessage);
-
-  // Gets our sentiment score from /sentiment servlet
-  const sentimentScore = await postSentiment(translatedMessage);
-
-  // This displays our sentimentScore, userMessage and translatedMessage
-  displayElements(sentimentScore, userMessage, translatedMessage);
-}
-
-// This function displays sentimentScore, originalMessage, scoreResponse, and
-// translatedMessage to the "sentiment" div.
-function displayElements(sentimentScore, originalMessage, translatedMessage) {
-  // Depends on the element id used to display our sentiment
-  const sentimentContainer = document.getElementById("sentiment");
-  sentimentContainer.innerText = "";
-
-  // Displays sentiment score
-  sentimentContainer.appendChild(
-    createParagraphElement("Sentiment score: " + sentimentScore)
-  );
-
-  // Displays a message based on our sentiment score
-  sentimentContainer.appendChild(
-    createParagraphElement(getScoreResponse(parseFloat(sentimentScore)))
-  );
-
-  // Displays user messsage
-  sentimentContainer.appendChild(
-    createParagraphElement("Original Message: " + originalMessage)
-  );
-
-  // Displays translated Message
-  sentimentContainer.appendChild(
-    createParagraphElement("Translated Message: " + translatedMessage)
-  );
-
-  displayLoadingBar(sentimentScore);
-}
-
 // Creates a <p> element containing text.
 function createParagraphElement(text) {
   const pElement = document.createElement("p");
   pElement.innerText = text;
   return pElement;
-}
-
-// returns emoji based on sentiment score
-function getEmoji(width) {
-  const spanElem = document.createElement("span");
-  spanElem.className = "emoji";
-  if (width <= 20) {
-    spanElem.innerText = "";
-  } else if (width <= 40) {
-    spanElem.innerText = "😒";
-  } else if (width >= 70) {
-    spanElem.innerText = "😺";
-  } else {
-    spanElem.innerText = "😐";
-  }
-
-  return spanElem;
 }
 
 // displays our loading bar to the sentimentBarGraph div
@@ -189,4 +127,66 @@ function getScoreResponse(score) {
   } else {
     return neutralMessages[randomIndex];
   }
+}
+
+// returns emoji based on sentiment score
+function getEmoji(width) {
+  const spanElem = document.createElement("span");
+  spanElem.className = "emoji";
+  if (width <= 20) {
+    spanElem.innerText = "";
+  } else if (width <= 40) {
+    spanElem.innerText = "😒";
+  } else if (width >= 70) {
+    spanElem.innerText = "😺";
+  } else {
+    spanElem.innerText = "😐";
+  }
+
+  return spanElem;
+}
+
+// Gets a sentiment value and updates DOM with new element.
+async function getSentiment() {
+  // Depends on where our value is stored in our index.html
+  const userMessage = document.getElementById("user-message").value;
+
+  // Gets our translated message from /translate servlet
+  const translatedMessage = await postTranslate(userMessage);
+
+  // Gets our sentiment score from /sentiment servlet
+  const sentimentScore = await postSentiment(translatedMessage);
+
+  // This displays our sentimentScore, userMessage and translatedMessage
+  displayElements(sentimentScore, userMessage, translatedMessage);
+}
+
+// This function displays sentimentScore, originalMessage, scoreResponse, and
+// translatedMessage to the "sentiment" div.
+function displayElements(sentimentScore, originalMessage, translatedMessage) {
+  // Depends on the element id used to display our sentiment
+  const sentimentContainer = document.getElementById("sentiment");
+  sentimentContainer.innerText = "";
+
+  // Displays sentiment score
+  sentimentContainer.appendChild(
+    createParagraphElement("Sentiment score: " + sentimentScore)
+  );
+
+  // Displays a message based on our sentiment score
+  sentimentContainer.appendChild(
+    createParagraphElement(getScoreResponse(parseFloat(sentimentScore)))
+  );
+
+  // Displays user messsage
+  sentimentContainer.appendChild(
+    createParagraphElement("Original Message: " + originalMessage)
+  );
+
+  // Displays translated Message
+  sentimentContainer.appendChild(
+    createParagraphElement("Translated Message: " + translatedMessage)
+  );
+
+  displayLoadingBar(sentimentScore);
 }
