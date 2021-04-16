@@ -22,10 +22,10 @@ public class TranslateServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// Get user input.
 		String requestParameters = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        String userInputJsonString = convertToJson(requestParameters);
 
-		// convert to WhatsYourSentiment object 
-        WhatsYourSentiment userInputObject = convertFromJson(userInputJsonString);
+		// Convert to WhatsYourSentiment object 
+        // WhatsYourSentiment userInputObject = convertFromJson(userInputJsonString);
+        WhatsYourSentiment userInputObject = convertFromJson(requestParameters);
 		 
 		// Gets source languge from dropdown
 		String sourceLanguage;
@@ -35,7 +35,6 @@ public class TranslateServlet extends HttpServlet {
             sourceLanguage = userInputObject.getSourceLanguage();
         }
 		String userInput = userInputObject.getData();
-
 
         String translatedText;
 		// Translate user text
@@ -54,25 +53,7 @@ public class TranslateServlet extends HttpServlet {
 		response.getWriter().println(translatedText);
 	}
 
-    // convert from a HTTP query string to a JSON string
-	private static String convertToJson(String a) {
-        String res = "{\"";
-
-        for (int i = 0; i < a.length(); i++) {
-            if (a.charAt(i) == '=') {
-                res += "\"" + ":" + "\"";
-            } else if (a.charAt(i) == '&') {
-                res += "\"" + "," + "\"";
-            } else if (a.charAt(i) == '+'){
-                res += " ";
-            }else {
-                res += a.charAt(i);
-            }
-        }
-        res += "\"" + "}";
-        return res;
-    }
-    
+   
     // Converts a JSON string to a WhatsYourSentiment object. 
     private WhatsYourSentiment convertFromJson(String userInput){
         Gson gson = new Gson();
