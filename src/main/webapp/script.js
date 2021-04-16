@@ -133,7 +133,7 @@ function getScoreResponse(score) {
 function getEmoji(width) {
   const spanElem = document.createElement("span");
   spanElem.className = "emoji";
-  if (width <= 20) {
+  if (width <= 10) {
     spanElem.innerText = "";
   } else if (width <= 40) {
     spanElem.innerText = "😒";
