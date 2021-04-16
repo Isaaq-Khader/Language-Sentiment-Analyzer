@@ -6,6 +6,7 @@ import com.google.cloud.translate.Translation;
 
 import java.util.stream.Collectors;
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,9 @@ public class TranslateServlet extends HttpServlet {
 		String requestParameters = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
         String userInputJsonString = convertToJson(requestParameters);
 
+        // This is our URLDecoder to convert special characters.
+        URLDecoder decoder = new URLDecoder();
+
 		// convert to WhatsYourSentiment object 
         WhatsYourSentiment userInputObject = convertFromJson(userInputJsonString);
 		 
@@ -34,14 +38,17 @@ public class TranslateServlet extends HttpServlet {
         } else {
             sourceLanguage = userInputObject.getSourceLanguage();
         }
-		String userInput = userInputObject.getData();
+
+        // We decode the input from URI format to text
+		String userInput = decoder.decode(userInputObject.getData());
+        
 
 
         String translatedText;
 		// Translate user text
 		Translate translate = TranslateOptions.getDefaultInstance().getService();
 		Translation translation = translate.translate(
-                userInput, 
+                userInput,
                 Translate.TranslateOption.sourceLanguage(sourceLanguage), 
                 Translate.TranslateOption.targetLanguage("en"),
                 Translate.TranslateOption.format("text")); 
